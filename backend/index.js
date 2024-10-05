@@ -18,7 +18,8 @@ const generateTextCode = () => {
 };
 
 app.use(cors({
-  origin: '*'
+  origin: 'https://copy-cut.vercel.app',
+  Credential: true,
 }));
 app.use(express.json());  // This is important!
 
