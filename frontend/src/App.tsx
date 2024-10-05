@@ -8,12 +8,11 @@ import {
 import SubmitButton from "./components/SubmitButton";
 import { Textarea } from "@/components/ui/textarea";
 import { useText } from "./TextContext";
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import DialogComponent from "./components/DialogComponent";
 
 export default function App() {
   const { text, setText } = useText();
-  const [viewMode, setViewMode] = useState(true);
   const handleTextChange = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       setText(e.target.value); // Efficiently updates text
@@ -41,25 +40,19 @@ export default function App() {
       <ResizableHandle />
       <ResizablePanel defaultSize={100}>
         <div className="flex h-full items-center justify-center flex-col gap-6 p-6">
-          {viewMode ? (
-            <>
-              <div className="grid w-full gap-1.5 flex-1">
-                {/* <Label htmlFor="message">Your message</Label> */}
-                <Textarea
-                  className=""
-                  placeholder="Type your message here."
-                  value={text}
-                  onChange={handleTextChange}
-                  id="message"
-                />
-              </div>
-              <div className="flex justify-between">
-                <SubmitButton textButton="Send"></SubmitButton>
-              </div>
-            </>
-          ) : (
-            <div></div>
-          )}
+          <div className="grid w-full gap-1.5 flex-1">
+            {/* <Label htmlFor="message">Your message</Label> */}
+            <Textarea
+              className=""
+              placeholder="Type your message here."
+              value={text}
+              onChange={handleTextChange}
+              id="message"
+            />
+          </div>
+          <div className="flex justify-between">
+            <SubmitButton textButton="Send"></SubmitButton>
+          </div>
         </div>
       </ResizablePanel>
     </ResizablePanelGroup>
