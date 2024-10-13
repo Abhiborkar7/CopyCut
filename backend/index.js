@@ -18,7 +18,7 @@ const generateTextCode = () => {
 };
 
 app.use(cors({
-  origin: '*',
+  origin: 'https://copycut-1.onrender.com',
   Credential: true,
 }));
 app.use(express.json());  // This is important!
